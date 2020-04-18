@@ -7,7 +7,6 @@
 #include "FamilyTree.hpp"
 #include <string>
 
-
 using namespace family;
 
 Tree *test_tree(){ // helper function for other tests
@@ -120,21 +119,21 @@ TEST_CASE("find") {
     CHECK(T->find("father") == "Yaakov");
     CHECK(T->find("mother") == "Rachel");
 
-    std::string grandfather;
+    string grandfather;
     CHECK_NOTHROW(grandfather = T->find("grandfather"));
     CHECK((grandfather == "Isaac" ||
            grandfather == "Lavan"));
 
     CHECK(T->find("grandmother") == "Rivka");
 
-    std::string great_grandfather;
+    string great_grandfather;
     CHECK_NOTHROW(great_grandfather = T->find("great-grandfather"));
     CHECK((great_grandfather == "Avraham" ||
            great_grandfather == "Betuel"));
 
     CHECK(T->find("great-grandmother") == "Sara");
 
-    std::string great_great_grandfather;
+    string great_great_grandfather;
     CHECK_NOTHROW(great_great_grandfather = T->find("great-great-grandfather"));
     CHECK((great_great_grandfather == "Terah" ||
            great_great_grandfather == "Haran" ||
